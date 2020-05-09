@@ -11,6 +11,8 @@ static Node * Node_construct(int v)
  */
 {
   Node * n = malloc(sizeof(Node));
+  if(n==NULL)
+    return NULL;
   n -> value = v;
   n -> next = NULL;
   return n;
@@ -22,19 +24,6 @@ Node * List_insert(Node * head, int v)
   Node * p = Node_construct(v); 
   p -> next = head;
   return p;   /* insert at the beginning */
-}
-
-Node * List_insert_last(Node * head, int v)
-{
-  printf("insert %d\n", v);
-  Node * p = head;
-  while (p -> next != NULL)
-    {
-      p = p -> next;
-    }
-  Node * tail = Node_construct(v);
-  p -> next = tail;
-  return tail;
 }
 
 Node * List_search(Node * head, int v)
@@ -106,3 +95,19 @@ void List_print(Node * head)
     }
   printf("\n\n");
 }
+
+Node * List_insert_last(Node * head, int v)
+{
+  printf("insert %d\n", v);
+  Node * p = head;
+  while (p -> next != NULL)
+    {
+      p = p -> next;
+    }
+  Node * tail = Node_construct(v);
+  if(tail==NULL)
+    return NULL;
+  p -> next = tail;
+  return tail;
+}
+

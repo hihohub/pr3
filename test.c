@@ -7,7 +7,6 @@
 /* James Smith
    CS 2750
    project 3: linked lists
-   UMSL
 */
 
 int validate(char * num){
@@ -32,7 +31,7 @@ int main(){
       printf("menu: \n\t1) insert head\n\t2) insert tail\n\t3) delete a node\n\t4) delete all\n\t5) display\n\t6) exit\n");
       scanf("%s",num);
       if(validate(num)==0){
-         printf("please input a number\n");
+         printf("please input a number\n\n");
          continue;
       }
       x = (int)strtol(num,NULL,10);
@@ -40,6 +39,7 @@ int main(){
          case 1:
             printf("input a number\n");
             scanf("%s",num);
+            printf("\n");
             if(validate(num)==0){
                printf("invalid input\n");
                break;
@@ -55,6 +55,7 @@ int main(){
             }
             printf("input a number\n");
             scanf("%s",num);
+            printf("\n");
             if(validate(num)==0){
                printf("invalid input\n");
                break;
@@ -64,11 +65,12 @@ int main(){
             break;
          case 3:
             if(head==NULL){
-               printf("please input a number first\n");
+               printf("please input a number first\n\n");
                break;
             }
             printf("input a number\n");
             scanf("%s",num);
+            printf("\n");
             if(validate(num)==0){
                printf("invalid input\n");
                break;
@@ -89,7 +91,7 @@ int main(){
             keepgoing = 0;
             break;
          default:
-            printf("invalid input\n");
+            printf("invalid input\n\n");
             break; 
       }
    } while(keepgoing==1);
